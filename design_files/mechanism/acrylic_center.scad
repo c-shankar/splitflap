@@ -1,11 +1,11 @@
 side = 36;
 lct = 3 ; //laser cut sheet thickness
-tol = .25; //tolerance
+tol = .1; //tolerance
 t_length = 10;// length of t-slot screw
 t_thick = 3;// diameter of t-slot screw
 nut_dia = 5.75;// diameter of t-slot nut
 nut_thick = 2.5;// thickness of t-slot nut
-dia = 8; //diameter of center hole
+dia = 8.1; //diameter of center hole
 rch = dia/2; //radius of center hole
 
 difference(){

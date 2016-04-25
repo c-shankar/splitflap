@@ -2,7 +2,7 @@ length = 61;
 breadth = 36;
 lct = 3; //laser cut sheet thickness (change the length and breadth accordingly)
 flag = 0; // change flag for alternate position of teeth
-tol = .25; //tolerance
+tol = .1; //tolerance
 //projection(cut = true) for z=0 plane, cut true gives top view of the object
 t_length = 10;// length of t-slot screw
 t_thick = 3;// diameter of t-slot screw
