@@ -15,14 +15,14 @@ scr_tol2 = tol; //center rect hole tol across breadth
 move_var = 1.5;//move the nut hole by X value
 difference(){
 union(){
-    translate([lct,lct,0])cube([length-(2*lct),breadth-(2*lct),lct]);  //center cuboid
+    translate([lct,lct,0])cube([length-(2*lct),breadth-(2*lct),lct]);  //the cuboid
 
-    for(y=[lct+tol:12:breadth])translate([0,y,0])cube([lct,6-2*tol,lct]);  //left
-    for(y=[lct+tol:12:breadth])translate([length-lct,y,0])cube([lct,6-2*tol,lct]);  //right
+    for(y=[lct+tol:12:breadth])translate([0,y,0])cube([lct,6-2*tol,lct]);  //teeth left
+    for(y=[lct+tol:12:breadth])translate([length-lct,y,0])cube([lct,6-2*tol,lct]);  //teeth right
             
     if(flag == 0){
-        for(x=[lct+tol:10:length])translate([x,0,0])cube([5-2*tol,lct,lct]);  //bottom
-        for(x=[lct+tol:10:length])translate([x,breadth-lct,0])cube([5-tol*2,lct,lct]);  //top 
+        for(x=[lct+tol:10:length])translate([x,0,0])cube([5-2*tol,lct,lct]);  //teeth bottom
+        for(x=[lct+tol:10:length])translate([x,breadth-lct,0])cube([5-tol*2,lct,lct]);  //teeth top 
        }
     if(flag == 1){
         for(x=[lct+5+tol:10:length-lct-1])translate([x,0,0])cube([5-2*tol,lct,lct]);

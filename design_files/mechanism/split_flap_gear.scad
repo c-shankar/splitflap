@@ -16,7 +16,7 @@ difference(){
 translate([radius,radius,0])difference(){
     cylinder(h=3,r1=radius,r2=radius,center=false,$fn=300);
     cylinder(h=6,r1=rch,r2=rch,center=false,$fn=300);
-    for(a=[0:360/holes_number:360])translate([rco*sin(a),rco*cos(a),0])cylinder(6,ro,ro,false,$fn=10);
+    for(a=[0:360/holes_number:1000])translate([rco*sin(a),rco*cos(a),0])cylinder(6,ro,ro,false,$fn=10);
         }
 for(y=[((diameter-net_side)/2)+lct-crh_tol:12:(diameter-net_side)/2+net_side])translate([((diameter-net_side)/2)-crh_tol2,y,0])color("red")cube([lct+crh_tol2,6+2*crh_tol,3]);//left
 for(x=[((diameter-net_side)/2)+lct-crh_tol:12:(diameter-net_side)/2+net_side])translate([x,((diameter-net_side)/2)-crh_tol2,0])color("red")cube([6+2*crh_tol,lct+2*crh_tol2,3]);//bottom
