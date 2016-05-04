@@ -40,4 +40,9 @@ union(){
 union(){//center hole
 translate([dim_x/2,dim_y/2,0])cylinder(lct,r1=rad_c,r2=rad_c,center=false,$fn=300);
 }
+//union(){//back cut hole for back part
+//for(y=[bthp+(t_thick/2)-(10/2),dim_y-bthp-(t_thick/2)+//(10/2)])translate([0,y,0]cube([lct+lct,10/*front //part width*/,3]);
+
+
+//}
 }

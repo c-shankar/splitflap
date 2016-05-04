@@ -8,6 +8,7 @@ nut_thick = 2.5;// thickness of t-slot nut
 dia = 8.1; //diameter of center hole
 rch = dia/2; //radius of center hole
 
+
 difference(){
 union(){
      translate([lct,lct,0])cube([side-2*lct,side-2*lct,lct]);  //the center cube
@@ -35,4 +36,14 @@ union(){
     
     translate([lct+12+(6-t_thick)/2-(nut_dia-t_thick)/2,side-lct-((t_length-lct-nut_thick)/2)-nut_thick,0])cube([nut_dia,nut_thick,lct]);//nut top
     }
+union(){
+    
+diagonal=sqrt(2)*(side-2*lct);
+c4h_r = ((diagonal-dia)/4)+sqrt(2)*lct;//bottomleft hole r
+c4h_th = 45; //bottomleft hole theta
+c4h_x = c4h_r*cos(c4h_th);//cartesian x
+c4h_y = c4h_r*sin(c4h_th);//cartesian y
+
+for(x=[c4h_x,side-c4h_x])for(y=[c4h_y,side-c4h_y])translate([x,y,0])cylinder(lct,r1=lct/2,r2=lct/2,center=false,$fn=300);//4 holes
+}
 }
