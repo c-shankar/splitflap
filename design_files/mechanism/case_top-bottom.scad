@@ -1,5 +1,5 @@
 lct = 3; // Laser Cut thickness
-dim_x = 86;
+dim_x = 86-5-5;//reduced by 10 mm
 dim_y= 86;
 tol = .1;//tolerance for teeth
 teeth_extend = 1;
