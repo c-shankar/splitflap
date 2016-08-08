@@ -1,6 +1,7 @@
+//4 oles placment error, check tinkercad  https://www.tinkercad.com/things/jVjKJpkIdHv-middlepartitr2
 side = 36;
 lct = 3 ; //laser cut sheet thickness
-tol = .1; //tolerance
+tol = .25; //tolerance
 t_length = 10;// length of t-slot screw
 t_thick = 3;// diameter of t-slot screw
 nut_dia = 5.75;// diameter of t-slot nut
