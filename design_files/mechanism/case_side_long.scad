@@ -25,14 +25,14 @@ union(){
 
 //screw holes top & bottom
 union(){
-    for(x=[lct+16+((16-t_thick)/2)+4/*offset*/+tol:32:128 + 5/*greater than 4+tol is enough*/ + lct+16+((16-t_thick)/2)])/*x  and 32+x*/translate([x,0,0])color("red")cube([t_thick,t_length,lct]);//screw hole bottom
-    for(x=[lct+16+((16-t_thick)/2)+4+tol:32:128+5 + lct+16+((16-t_thick)/2)])translate([x,dim_y-t_length,0])color("red")cube([t_thick,t_length,lct]);//screw hole top
+    for(x=[lct+16+((16-t_thick)/2)+4/*offset*/+tol+96/*last_2_only_req*/:32:128 + 5/*greater than 4+tol is enough*/ + lct+16+((16-t_thick)/2)])/*x  and 32+x*/translate([x,0,0])color("red")cube([t_thick,t_length+8/*new screw*/,lct]);//screw hole bottom
+    for(x=[lct+16+((16-t_thick)/2)+4+tol+96/*last_2_only_req*/:32:128+5 + lct+16+((16-t_thick)/2)])translate([x,dim_y-t_length-8/*new_screw*/,0])color("red")cube([t_thick,t_length+8/*new_screw*/,lct]);//screw hole top
 }
 
 //nut holes top & bottom 
 union(){
-    for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/+4+tol:32:dim_x])translate([x,lct+(t_length-lct-nut_thick)/2,0])cube([nut_dia,nut_thick,lct]);//nut hole bottom
-    for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/+4+tol:32:dim_x])translate([x,dim_y-lct-((t_length-lct-nut_thick)/2)-nut_thick,0])cube([nut_dia,nut_thick,lct]);//nut hole top
+    for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/+4+tol+96/*last_2_only_req*/:32:dim_x])translate([x,lct+(t_length-lct-nut_thick)/2+8/*new screw*/,0])cube([nut_dia,nut_thick,lct]);//nut hole bottom
+    for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/+4+tol+96/*last_2_only_req*/:32:dim_x])translate([x,dim_y-lct-((t_length-lct-nut_thick)/2)-nut_thick-8/*new screw*/,0])cube([nut_dia,nut_thick,lct]);//nut hole top
 }
 
 //nut holes left & right

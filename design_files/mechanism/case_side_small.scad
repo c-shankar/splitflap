@@ -1,6 +1,6 @@
 lct = 3; // Laser Cut thickness
 dim_x = 86;
-dim_y =  166;
+dim_y =  151;//height was 166 before
 t_length = 10;// length of t-slot screw
 t_thick = 3;// diameter of t-slot screw
 nut_dia = 5.75;// diameter of t-slot nut
@@ -21,11 +21,11 @@ for(x=[lct+tol:32:dim_x-2*lct])translate([x,dim_y-lct,0])cube([16-2*tol,lct,lct]
 }
 
 union(){
-for(x=[lct+16+((16-t_thick)/2),32 + lct+16+((16-t_thick)/2)])/*x  and 32+x*/translate([x,0,0])color("red")cube([t_thick,t_length,lct]);//screw hole bottom
-for(x=[lct+16+((16-t_thick)/2), 32 + lct+16+((16-t_thick)/2)])translate([x,dim_y-t_length,0])color("red")cube([t_thick,t_length,lct]);//screw hole top
+for(x=[lct+16+((16-t_thick)/2),32 + lct+16+((16-t_thick)/2)])/*x  and 32+x*/translate([x,0,0])color("red")cube([t_thick,t_length+8/*new screw*/,lct]);//screw hole bottom
+for(x=[lct+16+((16-t_thick)/2), 32 + lct+16+((16-t_thick)/2)])translate([x,dim_y-t_length-8/*new screw*/,0])color("red")cube([t_thick,t_length+8/*new screw*/,lct]);//screw hole top
     
-for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/:32:dim_x])translate([x,lct+(t_length-lct-nut_thick)/2,0])cube([nut_dia,nut_thick,lct]);//nut hole bottom
-for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/:32:dim_x])translate([x,dim_y-lct-((t_length-lct-nut_thick)/2)-nut_thick,0])cube([nut_dia,nut_thick,lct]);//nut hole top
+for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/:32:dim_x])translate([x,lct+((t_length-lct-nut_thick)/2)+8/*new screw*/,0])cube([nut_dia,nut_thick,lct]);//nut hole bottom
+for(x=[(lct+16+((16-t_thick)/2))/*dist bw O and screwhole*/-((nut_dia-t_thick)/2)/*dist diff screwhole & nuthole*/:32:dim_x])translate([x,dim_y-lct-((t_length-lct-nut_thick)/2)-nut_thick-8/*new screw*/,0])cube([nut_dia,nut_thick,lct]);//nut hole top
 }
 
 union(){
@@ -37,12 +37,7 @@ union(){
     for(y=[dim_y-fthp-((nut_dia-t_thick)/2)-t_thick:-fth_sep:100])translate([dim_x-lct-((t_length-nut_thick)/2)-nut_thick,y,0])cube([nut_thick,nut_dia,lct]);//nuthole right side(front)
 }
 
-union(){//center hole
+translate([10,0,0])/*move hole by 10mm*/union(){//center hole
 translate([dim_x/2,dim_y/2,0])cylinder(lct,r1=rad_c,r2=rad_c,center=false,$fn=300);
 }
-//union(){//back cut hole for back part
-//for(y=[bthp+(t_thick/2)-(10/2),dim_y-bthp-(t_thick/2)+//(10/2)])translate([0,y,0]cube([lct+lct,10/*front //part width*/,3]);
-
-
-//}
 }
